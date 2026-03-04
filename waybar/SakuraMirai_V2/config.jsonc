@@ -1,0 +1,272 @@
+{
+  "reload_style_on_change": true,
+  "layer": "top",
+  "position": "top",
+  "spacing": 0,
+  "mod": "dock",
+  "name": "waybar",
+  "exclusive": true,
+  "passthrough": false,
+  "gtk-layer-shell": true,
+  "height": 35,
+  "border-radius": 25,
+  "margin-right": 0,
+  "margin-left": 0,
+  "margin-top": 0,
+
+    "modules-left": ["group/launcher", "clock", "mpris"],
+    "modules-center": ["custom/notification", "hyprland/workspaces", "custom/inhibit-suspend"],
+    "modules-right": ["group/toolbox", "pulseaudio", "backlight", "battery", "custom/power"],
+
+
+    "group/launcher": {
+    "orientation": "horizontal",
+    "drawer": {
+        "transition-duration": 350,
+        "children-class": "launcher-expansion",
+        "transition-left-to-right": true,
+    },
+    	"modules": [
+        	"custom/launcher",
+        	"custom/calculator",
+        	"custom/discord",
+        	"custom/kew"    	
+    	]
+    },
+    
+    "custom/launcher": {
+    	"format": "",
+    	"tooltip-format": "App Launcher (Left Click)\nQuick Links (Hover)",
+    	"on-click": "rofi -show drun"
+    },
+
+    "custom/calculator": {
+    	"format": "󰃬",
+    	"tooltip-format": "Calculator",
+    	"on-click": "gnome-calculator"
+    },
+
+    "custom/discord": {
+    	"format": "󰙯",
+    	"tooltip-format": "Discord",
+    	"on-click": "discord"
+    },
+
+    "custom/kew": {
+    	"format": "󰝚",
+    	"tooltip-format": "Kew - TUI Music Player",
+    	"on-click": "kitty --title kew kew"
+    },
+
+    "hyprland/workspaces": {
+    	"format": "{icon}",
+    	"on-click": "activate",
+    	"all-outputs": true,
+    	"sort-by-number": true,
+
+    	"persistent-workspaces": {
+        	"1": [],
+        	"2": [],
+        	"3": [],
+        	"4": [],
+        	"5": []
+    	},
+
+    	"format-icons": {
+        	"1": "火",
+        	"2": "水",
+        	"3": "風",
+        	"4": "土",
+        	"5": "空",
+        	"6": "月",
+        	"7": "日",
+        	"8": "星",
+        	"9": "天",
+        	"10": "海"
+    	},
+
+    	"on-scroll-up": "hyprctl dispatch workspace e-1",
+    	"on-scroll-down": "hyprctl dispatch workspace e+1"
+  },	
+    
+    "mpris": {
+      "format": "{player_icon} {title}",
+      "format-paused": "{status_icon} <i>{title}</i>",
+      "format-stopped": "",
+      "max-length": 25,
+      "player-icons": {
+        "default": "󰎆",
+        "mpv": "󰎇",
+        "spotify": "󰓇",
+        "firefox": "󰈹"
+      },
+      "status-icons": {
+        "paused": "󰏤"
+      },
+      "tooltip-format": "{player} - {artist}\n{title}\n{album}",
+      "on-click": "playerctl play-pause",
+      "on-scroll-up": "playerctl next",
+      "on-scroll-down": "playerctl previous"
+    },
+
+    "custom/notification": {
+        "format": "{icon}",
+        "format-icons": {
+            "notification": "󱅫",
+            "none": "󰂚",
+            "dnd-notification": "󱏧",
+            "dnd-none": "󰂛",
+            "inhibited-notification": "󱅫",
+            "inhibited-none": "󰂚",
+            "dnd-inhibited-notification": "󱏧",
+            "dnd-inhibited-none": "󰂛"
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true,
+        "tooltip-format": "Notifications\n\nLMB: Toggle Panel\nRMB: Do Not Disturb"
+    },
+
+    "clock": {
+        "format": "󱑂 {:%H:%M}",
+        "format-alt": "󰃭 {:%A, %B %d}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+    
+    "custom/inhibit-suspend": {
+        "format": "{}",
+        "exec": "if pgrep -x 'hypridle' > /dev/null; then echo '{\"text\": \"󰛊\", \"tooltip\": \"Auto-suspend ENABLED\\nClick to disable hypridle\", \"class\": \"enabled\"}'; else echo '{\"text\": \"󰅶\", \"tooltip\": \"Auto-suspend DISABLED\\nClick to enable hypridle\", \"class\": \"disabled\"}'; fi",
+        "return-type": "json",
+        "interval": 5,
+        "signal": 9,
+        "on-click": "uwsm-app -- ~/.config/hypridle/hypridle.sh",
+        "escape": true
+    },
+
+    
+    "group/toolbox": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 450,
+            "children-class": "toolbox-expansion",
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "custom/tools",
+            "custom/OSK",
+            "network",
+            "cpu",
+            "memory",
+            "tray"
+        ]
+    },
+    
+    "custom/tools": {
+    	"format": "《",
+    	"tooltip-format": "Extra Utilities"
+    },
+    
+    "custom/OSK": {
+    	"format": "{}",
+    	"exec": "if pgrep -x 'wvkbd-deskintl' > /dev/null; then echo '{\"text\": \"󰌌\", \"tooltip\": \"On-Screen Keyboard Enabled\\nClick to disable\", \"class\": \"enabled\"}'; else echo '{\"text\": \"⌨\", \"tooltip\": \"On-Screen Keyboard Disabled\\nClick to enable\", \"class\": \"disabled\"}'; fi",
+    	"return-type": "json",
+    	"interval": 2,
+    	"on-click": "~/.config/wvkbd/toggle.sh",
+    	"escape": true
+    },
+    "network": {
+        "format-wifi": "󰤨",
+        "format-ethernet": "󰈀",
+        "format-disconnected": "󰤭",
+        "format-linked": "󰈁",
+        "tooltip-format-wifi": "󰤨 {essid}\n󱑽 {signalStrength}%\n󰩟 {ipaddr}",
+        "tooltip-format-ethernet": "󰈀 Ethernet\n󰩟 {ipaddr}",
+        "tooltip-format-disconnected": "󰤭 Disconnected",
+        "on-click": "uwsm-app -- kitty --class wifitui -e wifitui"
+    },
+    
+    "cpu": {
+      "interval": 2,
+      "format": "󰍛 {usage}%",
+      "on-click": "kitty -e btop",
+      "states": {
+        "warning": 70,
+        "critical": 90
+      }
+    },
+    
+    "memory": {
+        "format": "󰘚 {percentage}%",
+        "on-click": "sysmontask",
+        "interval": 3,
+        "tooltip-format": "RAM: {used:0.2f} GiB / {total:0.2f} GiB ({percentage}%)\nAvailable: {avail:0.2f} GiB\nSwap: {swapUsed:0.2f} GiB / {swapTotal:0.2f} GiB\n\nLMB: SysMonTask",
+        "states": {
+            "warning": 70,
+            "critical": 85
+        }
+    },
+    
+    "pulseaudio": {
+      "format": "{icon} {volume}%",
+      "format-muted": "󰖁",
+      "format-bluetooth": "󰂰 {volume}%",
+      "format-bluetooth-muted": "󰂲",
+      "format-icons": {
+        "headphone": "󰋋",
+        "hands-free": "󰋎",
+        "headset": "󰋎",
+        "phone": "",
+        "portable": "",
+        "car": "",
+        "default": ["󰕿", "󰖀", "󰕾"]
+      },
+      "on-click": "uwsm-app -- pavucontrol",
+      "on-click-right": "uwsm-app -- kitty --class cava -e cava",
+      "on-click-middle": "swayosd-client --output-volume mute-toggle",
+      "on-scroll-up": "swayosd-client --output-volume raise",
+      "on-scroll-down": "swayosd-client --output-volume lower",
+      "tooltip-format": "{desc}\nVolume: {volume}%\n\nLMB: Pavucontrol\nRMB: Cava\nMMB: Mute Toggle\nScroll: Volume",
+      "scroll-step": 5,
+      "max-volume": 150
+    },
+
+    "backlight": {
+      "format": "{icon} {percent}",
+      "tooltip-format": "Brightness: {percent}%",
+      "on-scroll-up": "swayosd-client --brightness raise",
+      "on-scroll-down": "swayosd-client --brightness lower",
+      "format-icons": ["󰃞", "󰃟", "󰃠"]
+    },
+    
+    "battery": {
+        "format": "{icon} {capacity}%",
+        "format-alt": "{icon} {capacity}% {power:.1f}W",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": "󰂄 {capacity}%",
+        "format-full": "󱟢",
+        "format-warning": "{icon} {capacity}%",
+        "format-critical": "󰂃 {capacity}%",
+        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "interval": 5,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "tooltip-format": "{timeTo}\nHealth: {health}%\nPower Draw: {power:.2f} W\nCycles: {cycles}\n\nLMB: Toggle Format",
+    },
+    
+    "tray": {
+      "icon-size": 15,
+      "spacing": 6,
+      "show-passive-items": true
+    },
+    
+    "custom/power": {
+      "format": "⏻",
+      "on-click": "wlogout",
+      "tooltip-format": "Power Menu"
+    }
+}
