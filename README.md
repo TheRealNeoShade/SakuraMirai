@@ -1,10 +1,10 @@
-# SakuraMirai Waybar
+# 🌸 SakuraMirai Waybar
 
-Minimal Hyprland Waybar Theme with Japanese Cyber asethetics.
+Minimal Hyprland Waybar Theme with Japanese Cyber aesthetics.
 
 ---
 
-## Features
+## ✨ Features
 
 - hidden sliding menu for extra utilities and 3 customized button for your top apps!
 - Hypridle toggle (Coffee Mode)!
@@ -14,33 +14,33 @@ Minimal Hyprland Waybar Theme with Japanese Cyber asethetics.
 
 ---
 
-## Installation
+## ⛏ Installation
 
-```bash
-bash <(curl -s https://raw.githubusercontent.com/TheRealNeoShade/SakuraMirai/main/install.sh)
+```
+bash <(curl -fsSL https://raw.githubusercontent.com/TheRealNeoShade/SakuraMirai/main/install.sh)
 ```
 > Manual Installation at the end of README.
 
 ---
 
-## Preview
+## 📷 Preview
 
 ### SakuraMirai_V1
 
-![SakuraMirai_V1](/assets/V1.png)
+![SakuraMirai_V1](/preview/V1.png)
 
 ### SakuraMirai_V2
 
-![SakuraMirai_V2](/assets/V2.png)
+![SakuraMirai_V2](/preview/V2.png)
 
-## License
+## 📖 License
 
 This project is licensed under CC BY-NC 4.0.
 
 You may use, modify and share freely.
 Commercial selling is NOT allowed.
 
-## Manual Installation (Arch Linux)
+## 🛠 Manual Installation (Arch Linux)
 
 1. Clone the repository:
 
