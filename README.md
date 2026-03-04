@@ -1,11 +1,12 @@
 # 🌸 SakuraMirai Waybar
 
-Minimal Hyprland Waybar Theme with Japanese Cyber aesthetics.
+Minimal Hyprland Waybar Theme with Japanese Cyber aesthetics & Dynamic Matugen Theming
 
 ---
 
 ## ✨ Features
 
+- Matugen Based Theming
 - hidden sliding menu for extra utilities and 3 customized button for your top apps!
 - Hypridle toggle (Coffee Mode)!
 - wvkbd toggle (On-Screen Keyboard)!
