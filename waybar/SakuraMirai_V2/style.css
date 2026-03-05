@@ -278,14 +278,14 @@ window#waybar #workspaces button.active {
     padding: 0 12px;
     margin: 4px 0px 4px 4px;
     border-radius : 20px 0px 0px 50px;
-    background: rgba(255, 255, 255, 0.05); 
+    background: alpha(@primary, 0.1);
     transition: all 0.3s ease-in-out;
 }
 #backlight {
     padding: 0 12px;
     margin: 4px 0px;
     border-radius : 0px 0px 0px 0px;
-    background: rgba(255, 255, 255, 0.05); 
+    background: alpha(@primary, 0.1);
     transition: all 0.3s ease-in-out;
 }
 
