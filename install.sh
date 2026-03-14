@@ -50,6 +50,12 @@ install_files() {
 
     curl -s "$BASE_URL/waybar/SakuraMirai_V2/config.jsonc" -o "$WAYBAR_DIR/config_v2.jsonc"
     curl -s "$BASE_URL/waybar/SakuraMirai_V2/style.css" -o "$WAYBAR_DIR/style_v2.css"
+    
+    curl -s "$BASE_URL/waybar/SakuraMirai_V3/config.jsonc" -o "$WAYBAR_DIR/config_v3.jsonc"
+    curl -s "$BASE_URL/waybar/SakuraMirai_V3/style.css" -o "$WAYBAR_DIR/style_v3.css"
+    
+    curl -s "$BASE_URL/waybar/SakuraMirai_V4/config.jsonc" -o "$WAYBAR_DIR/config_v4.jsonc"
+    curl -s "$BASE_URL/waybar/SakuraMirai_V4/style.css" -o "$WAYBAR_DIR/style_v4.css"
 
     echo "Installing hypridle toggle..."
     curl -s "$BASE_URL/scripts/hypridle.sh" -o "$HYPRIDLE_DIR/hypridle.sh"

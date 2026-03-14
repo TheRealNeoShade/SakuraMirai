@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════════════════
-   SakuraMirai_V2
+   SakuraMirai_V4
    ═══════════════════════════════════════════════════════════════════════════ */
 
 @import url("../../.config/matugen/generated/waybar-colors.css");
@@ -15,17 +15,17 @@
 
 
 window#waybar {
-    background: alpha(@surface_container, 1);
-    border-radius : 0px 0px 50px 50px;
-    margin: 4px 6px;
+    background: alpha(@on_primary, 0);
+    border-radius : 0px;
+    margin: 0px 6px 0px 6px;
 }
 
 /* The actual bar container */
 window#waybar > box {
-    background-color: alpha(@surface_container, 1); 
+    background: alpha(@on_primary, 0);
     border-radius : 0px 0px 50px 50px;
-    margin: 4px 6px;
-    padding: 1px 15px 3px;
+    margin: 4px 6px 4px 6px;
+    padding: 1px 15px 0px 15px;
 }
 
 
@@ -46,9 +46,10 @@ window#waybar > box {
     padding: 0 10px;
     margin: 4px 0px;
     border-radius : 20px 0px 0px 50px;
-    background: alpha(@primary, 0.1);
+    background: alpha(@on_secondary, 1);
     color: @secondary;
     transition: all 0.3s ease-in-out;
+    border-bottom: 2px solid alpha(@primary, 1);
 }
 
 /* Discord – Primary */
@@ -56,9 +57,10 @@ window#waybar > box {
     padding: 0 10px;
     margin: 4px 0px;
     border-radius : 0px 0px 0px 0px;
-    background: alpha(@primary, 0.1);
+    background: alpha(@on_secondary, 1);
     color: @primary;
     transition: all 0.3s ease-in-out;
+    border-bottom: 2px solid alpha(@primary, 1);
 }
 
 /* Kew – Secondary */
@@ -66,28 +68,30 @@ window#waybar > box {
     padding: 0 10px;
     margin: 4px 0px;
     border-radius : 0px 20px 50px 0px;
-    background: alpha(@primary, 0.1);
+    background: alpha(@on_secondary, 1);
     color: @secondary;
     transition: all 0.3s ease-in-out;
+    border-bottom: 2px solid alpha(@primary, 1);
 }
 
 /* Hover – Same As Other Modules */
 #custom-calculator:hover,
 #custom-discord:hover,
 #custom-kew:hover {
-    background: alpha(@primary, 0.3);
-    text-shadow: 0 0 8px alpha(@on_primary, 0.3);
+    background: @on_primary;
+    text-shadow: 0 0 8px alpha(@on_surface, 0.3);
 }
 
 /* App Launcher Gem */
 #custom-launcher {
-    background: alpha(@primary, 0.1);
+    background: alpha(@on_secondary, 1);
     color: @primary;
     padding: 0px 8px 2px 12px;
     margin: 6px 4px 6px 4px;
     border-radius : 0px 20px 20px 50px;
     font-size: 16px;
     transition: all 0.3s ease-in-out;
+    border-bottom: 2px solid alpha(@primary, 1);
 }
 
 #custom-launcher:hover {
@@ -101,10 +105,11 @@ window#waybar > box {
 
 
 #workspaces {
-    background: alpha(@primary, 0.1); 
+    background: alpha(@on_secondary, 1); 
     margin: 4px 4px;
     border-radius : 20px 20px 50px 50px;
     padding: 0px 6px;
+    border-bottom: 2px solid alpha(@primary, 1);
 }
 
 #workspaces button {
@@ -147,41 +152,46 @@ window#waybar #workspaces button.active {
 
 /* Music/MPRIS */
 #mpris {
-    background: alpha(@primary, 0.1);
+    background: alpha(@on_secondary, 1);
     color: @secondary;
     padding: 0 15px;
     margin: 4px 4px;
     border-radius : 20px 20px 50px 50px;
     transition: all 0.3s ease-in-out;
+    border-bottom: 2px solid alpha(@primary, 1);
 }
 
 #mpris:hover {
-    background: alpha(@primary, 0.3);
-    text-shadow: 0 0 8px alpha(@on_primary, 0.3);
+    background: @on_primary;
+    text-shadow: 0 0 8px alpha(@on_surface, 0.3);
 }
 
+
 #clock {
-    background: alpha(@primary, 0.1); 
+    background: alpha(@on_secondary, 1);
     padding: 0 16px;
     margin: 4px 3px;
     border-radius : 20px 20px 50px 50px;
     transition: all 0.3s ease-in-out;
+    border-bottom: 2px solid alpha(@primary, 1);
 }
 
 #custom-notification {
-    background: alpha(@primary, 0.1); 
+    background: alpha(@on_secondary, 1);
     padding: 0 16px 0 15px;
     margin: 4px 6px;
     border-radius : 20px 20px 50px 50px;;
     transition: all 0.3s ease-in-out;
+    border-bottom: 2px solid alpha(@primary, 1);
 }
   
 #custom-inhibit-suspend {
-    background: alpha(@primary, 0.1); 
+   background: alpha(@on_secondary, 1);
     padding: 0 16px 0 15px;
     margin: 4px 6px;
     border-radius : 20px 20px 50px 50px;;
     transition: all 0.3s ease-in-out;
+    border-bottom: 2px solid alpha(@primary, 1);
 }
 
 /* 1. NOTIFICATION - Secondary Accent */
@@ -224,8 +234,8 @@ window#waybar #workspaces button.active {
 #custom-notification:hover, 
 #clock:hover, 
 #custom-inhibit-suspend:hover {
-    background: alpha(@primary, 0.3);
-    text-shadow: 0 0 8px alpha(@on_primary, 0.3);
+    background: @on_primary;
+    text-shadow: 0 0 8px alpha(@on_surface, 0.3);
 }
 /* ─────────────────────────────────────────────────────────────────────────────
    RIGHT MODULES
@@ -236,7 +246,7 @@ window#waybar #workspaces button.active {
    ───────────────────────────────────────────────────────── */
 
 #group-toolbox {
-    background: alpha(@primary, 0.1);
+    background: alpha(@on_secondary, 1);
     margin: 4px 2px;
     padding: 0 6px;
     border-radius: 0px;
@@ -254,9 +264,10 @@ window#waybar #workspaces button.active {
     padding: 0 10px 0 4px;
     margin: 4px 0px;
     border-radius : 50px 20px 20px 50px;
-    background: alpha(@primary, 0.1);
+    background: alpha(@on_secondary, 1);
     transition: all 0.3s ease-in-out;
     color: @secondary;
+    border-bottom: 2px solid alpha(@primary, 1);
 }
 
 /* OSK Button (Now Secondary Accent, Clean & Equal) */
@@ -264,15 +275,16 @@ window#waybar #workspaces button.active {
     padding: 0 10px 1px 16px;
     margin: 4px 0px 4px 0px;
     border-radius : 20px 0px 0px 50px;
-    background: alpha(@primary, 0.1);
+    background: alpha(@on_secondary, 1);
     transition: all 0.3s ease-in-out;
     color: @secondary;
+    border-bottom: 2px solid alpha(@primary, 1);
 }
 
 #custom-tools:hover,
 #custom-OSK:hover {
-    background: alpha(@primary, 0.3);
-    text-shadow: 0 0 8px alpha(@on_primary, 0.3);
+    background: @on_primary;
+    text-shadow: 0 0 8px alpha(@on_surface, 0.3);
 }
 
 /* Common base for all right-side modules */
@@ -280,23 +292,26 @@ window#waybar #workspaces button.active {
     padding: 0 12px;
     margin: 4px 2px;
     border-radius: 10px;
-    background: alpha(@primary, 0.1); 
+    background: alpha(@on_secondary, 1); 
     transition: all 0.3s ease-in-out;
+    border-bottom: 2px solid alpha(@primary, 1);
 }
 
 #pulseaudio {
     padding: 0 12px;
     margin: 4px 0px 4px 4px;
     border-radius : 20px 0px 0px 50px;
-    background: alpha(@primary, 0.1);
+    background: alpha(@on_secondary, 1);
     transition: all 0.3s ease-in-out;
+    border-bottom: 2px solid alpha(@primary, 1);
 }
 #backlight {
     padding: 0 12px;
     margin: 4px 0px;
     border-radius : 0px 0px 0px 0px;
-    background: alpha(@primary, 0.1); 
+    background: alpha(@on_secondary, 1);
     transition: all 0.3s ease-in-out;
+    border-bottom: 2px solid alpha(@primary, 1);
 }
 
 /* 1. NETWORK - Secondary Accent */
@@ -305,11 +320,12 @@ window#waybar #workspaces button.active {
     padding: 0px 9px 2px 8px;
     margin: 4px 0px;
     border-radius : 0px 0px 0px 0px;
+    border-bottom: 2px solid alpha(@primary, 1);
     font-size: 16px;
 }
 #network:hover {
-    background: alpha(@primary, 0.3);
-    text-shadow: 0 0 8px alpha(@on_primary, 0.3);
+    background: @on_primary;
+    text-shadow: 0 0 8px alpha(@on_surface, 0.3);
 }
 #network.disconnected {
     color: @error;
@@ -337,24 +353,8 @@ window#waybar #workspaces button.active {
 #network:hover, 
 #pulseaudio:hover, 
 #backlight:hover {
-    background: alpha(@primary, 0.3);
-    text-shadow: 0 0 8px alpha(@on_primary, 0.3);
-}
-
-
-#backlight:hover {
-    background: alpha(@primary, 0.3);
-    text-shadow: 0 0 8px alpha(@on_primary, 0.3);
-}
-
-#pulseaudio:hover {
-    background: alpha(@primary, 0.3);
-    text-shadow: 0 0 8px alpha(@on_primary, 0.3);
-}
-
-#network:hover {
-    background: alpha(@primary, 0.3);
-    text-shadow: 0 0 8px alpha(@on_primary, 0.3);
+    background: @on_primary;
+    text-shadow: 0 0 8px alpha(@on_surface, 0.3);
 }
 /* ─────────────────────────────────────────────────────────────────────────────
    CPU & MEMORY 
@@ -364,7 +364,8 @@ window#waybar #workspaces button.active {
     padding: 0 10px;
     margin: 4px 0px;
     border-radius : 0px 0px 0px 0px;
-    background: alpha(@primary, 0.1); 
+    background: alpha(@on_secondary, 1);
+    border-bottom: 2px solid alpha(@primary, 1);
     transition: all 0.3s ease-in-out;
 }
 
@@ -372,8 +373,9 @@ window#waybar #workspaces button.active {
     padding: 0 10px;
     margin: 4px 0px;
     border-radius : 0px 0px 0px 0px;
-    background: alpha(@primary, 0.1); 
+    background: alpha(@on_secondary, 1);
     transition: all 0.3s ease-in-out;
+    border-bottom: 2px solid alpha(@primary, 1);
 }
 
 /* Individual Colors */
@@ -387,8 +389,8 @@ window#waybar #workspaces button.active {
 
 /* Hover effect */
 #cpu:hover, #memory:hover {
-    background: alpha(@primary, 0.3);
-    text-shadow: 0 0 8px alpha(@on_primary, 0.3);
+    background: @on_primary;
+    text-shadow: 0 0 8px alpha(@on_surface, 0.3);
 }
 
 /* Warning State (Over 70% usage) */
@@ -420,24 +422,18 @@ window#waybar #workspaces button.active {
     padding: 0 10px;
     margin: 4px 2px 4px 0px;
     border-radius : 0px 20px 50px 0px;
-    background: alpha(@primary, 0.1);
+    background: alpha(@on_secondary, 1);
     transition: all 0.3s ease-in-out;
+    border-bottom: 2px solid alpha(@primary, 1);
 }
 
 /* Battery Dynamic Styling */
 
-#battery:hover,
-#battery.charging:hover,
-#battery.plugged:hover,
-#battery.critical:not(.charging):hover {
-    background: alpha(@primary, 0.3);
-    text-shadow: 0 0 8px alpha(@on_primary, 0.3);
-}
-
 #battery {
     color: @primary;
     border-radius : 0px 20px 50px 0px;
-    background: alpha(@primary, 0.1);
+    background: alpha(@on_secondary, 1);
+    border-bottom: 2px solid alpha(@primary, 1);
 }
 
 #battery.charging, #battery.plugged {
@@ -445,7 +441,8 @@ window#waybar #workspaces button.active {
     padding: 0 10px;
     margin: 4px 2px 4px 0px;
     border-radius : 0px 20px 50px 0px;
-    background: alpha(@primary, 0.1);
+    background: alpha(@on_secondary, 1);
+    border-bottom: 2px solid alpha(@primary, 1);
 }
 
 #battery.critical:not(.charging) {
@@ -453,6 +450,15 @@ window#waybar #workspaces button.active {
     color: @on_error;
     border-radius : 0px 20px 50px 0px;
     animation: blink 1s infinite alternate;
+    border-bottom: 2px solid alpha(@primary, 1);
+}
+
+#battery.charging:hover,
+#battery.plugged:hover,
+#battery.critical:not(.charging):hover,
+#battery:hover {
+    background: @on_primary;
+    text-shadow: 0 0 8px alpha(@on_surface, 0.3);
 }
 
 /* System Tray Glass */
@@ -462,23 +468,25 @@ window#waybar #workspaces button.active {
     padding: 0 10px;
     margin: 4px 2px 4px 0px;
     border-radius : 0px 20px 50px 0px;
-    background: alpha(@primary, 0.1);
+    background: alpha(@on_secondary, 1);
+    border-bottom: 2px solid alpha(@primary, 1);
 }
 
 #tray:hover {
-    background: alpha(@primary, 0.3);
-    text-shadow: 0 0 8px alpha(@on_primary, 0.3);
+    background: @on_primary;
+    text-shadow: 0 0 8px alpha(@on_surface, 0.3);
 }
 
 /* Power Button Gem */
 #custom-power {
-    background: alpha(@primary, 0.1);
+    background: alpha(@on_secondary, 1);
     color: @primary;
     padding: 0px 14px 2px 8px;
     margin: 6px 4px 6px 4px;
     border-radius : 20px 0px 50px 20px;
     font-size: 16px;
     transition: all 0.3s ease-in-out;
+    border-bottom: 2px solid alpha(@primary, 1);
 }
 #custom-power:hover {
     background: @primary_fixed_dim;

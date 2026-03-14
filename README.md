@@ -34,6 +34,16 @@ bash <(curl -fsSL https://raw.githubusercontent.com/TheRealNeoShade/SakuraMirai/
 
 ![SakuraMirai_V2](/preview/V2.png)
 
+### SakuraMirai_V3
+
+![SakuraMirai_V3](/preview/V3.png)
+
+### SakuraMirai_V4
+
+![SakuraMirai_V4](/preview/V4.png)
+
+---
+
 ## 📖 License
 
 This project is licensed under CC BY-NC 4.0.
@@ -82,6 +92,8 @@ cp -r waybar/SakuraMirai_V1/* ~/.config/waybar/
 ```
 cp -r waybar/SakuraMirai_V2/* ~/.config/waybar/
 ```
+- OR V3, V4.
+
 7. Copy toggle scripts:
 ```
 cp scripts/hypridle.sh ~/.config/hypridle/hypridle.sh
